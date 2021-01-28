@@ -6,7 +6,7 @@ namespace codeql_example
 {
     class Program
     {
-        public static string str = "adfwaefrSSS#3444F^%^&FFFdjfsgdsngAAAAAPPFPDSfdsfdsf45$$$=F";
+        public static string password = "arpan@123";
 
         static void Main(string[] args)
         {
