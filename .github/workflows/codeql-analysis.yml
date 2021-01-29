@@ -10,7 +10,9 @@
 # supported CodeQL languages.
 #
 name: "CodeQL"
-
+defaults:
+  run:
+    working-directory: ./src/codeql-example
 on:
   push:
     branches: [ main,develop ]
@@ -51,7 +53,7 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.0
     - run: |
         nuget restore
-        msbuild src/codeql-example /p:UseSharedCompilation=false 
+        msbuild /p:UseSharedCompilation=false 
         
     # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
