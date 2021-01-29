@@ -10,9 +10,16 @@ namespace codeql_example
 
         static void Main(string[] args)
         {
+            try
+            {
+                throw new ArgumentException("Thrown in " + AppDomain.CurrentDomain.FriendlyName);
+            }
+            finally
+            {
+
+            }
             var txtSQL = "SELECT * FROM Users WHERE UserId = " + args[0];
 
-            throw new ArgumentException("Thrown in " + AppDomain.CurrentDomain.FriendlyName);
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.com"); // Noncompliant
 
