@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Xml.XPath;
 
 namespace codeql_example
 {
@@ -8,10 +9,15 @@ namespace codeql_example
     {
         public static string password = "arpan@123";
 
+        public static XPathNavigator AuthorizedOperations { get; set; }
+
         static void Main(string[] args)
         {
             try
             {
+                XPathNavigator node = AuthorizedOperations.SelectSingleNode(
+            "//authorizedOperation[@username = 'anonymous' and @operationName = '" + args[0].ToString() + "']");
+
                 throw new ArgumentException("Thrown in " + AppDomain.CurrentDomain.FriendlyName);
             }
             finally
