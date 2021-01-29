@@ -10,6 +10,8 @@ namespace codeql_example
 
         static void Main(string[] args)
         {
+            var txtSQL = "SELECT * FROM Users WHERE UserId = " + args[0];
+
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.google.com"); // Noncompliant
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
